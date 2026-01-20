@@ -1,0 +1,82 @@
+[config]
+type = "pipeline"
+chartbook_format_version = "0.0.2"
+
+[site]
+title = "Foreign Exchange Returns"
+author = "Jeremy Bejarano"
+copyright = "2025"
+logo_path = ""
+favicon_path = ""
+
+[pipeline]
+id = "foreign_exchange"
+pipeline_name = "Foreign Exchange Returns"
+pipeline_description = "Daily FX returns for USD invested in foreign currencies via overnight repo markets"
+lead_pipeline_developer = "Jeremy Bejarano"
+contributors = ["Jeremy Bejarano", "Kunj Mehta"]
+runs_on = "Windows/Linux/MacOS (requires Bloomberg)"
+git_repo_URL = "https://github.com/ftsfr/foreign_exchange"
+README_file_path = "./README.md"
+
+[notebooks]
+
+[notebooks.summary_fx_returns]
+notebook_name = "summary_fx_returns"
+notebook_description = "Summary statistics and visualization of FX returns"
+notebook_path = "_output/_notebook_build/summary_fx_returns.ipynb"
+is_publishable = true
+
+[charts]
+
+[dataframes]
+
+[dataframes.ftsfr_fx_returns]
+dataframe_name = "ftsfr_fx_returns"
+short_description_df = "Daily FX returns for USD invested in 9 foreign currencies"
+data_sources = ["Bloomberg FX"]
+data_providers = ["Bloomberg"]
+need_to_contact_provider = ["no"]
+data_on_pre_approved_list = ["No"]
+links_to_data_providers = ["https://bloomberg.com"]
+topic_tags = ["FX", "foreign exchange", "currency", "returns"]
+type_of_data_access = ["Bloomberg Terminal"]
+data_license = "Bloomberg"
+license_expiration_date = ""
+provider_contact_info = ""
+restriction_on_use = "No"
+how_is_pulled = "Pulled from Bloomberg via xbbg"
+path_to_parquet_data = "./_data/ftsfr_fx_returns.parquet"
+path_to_excel_data = ""
+date_col = "ds"
+dataframe_docs_str = """
+## Foreign Exchange Returns
+
+Daily returns for USD invested in foreign currencies via overnight repo markets.
+
+### Columns
+
+| Column | Description |
+|--------|-------------|
+| unique_id | Currency identifier (e.g., EUR_return) |
+| ds | Date |
+| y | Daily annualized return (percent) |
+
+### Methodology
+
+$$
+ret_{t,i} = (spot_{t-1,i} / spot_{t,i}) × fret_{t,i}
+$$
+
+Where:
+- spot: Exchange rate (how much 1 USD is worth in foreign currency)
+- fret: Foreign currency return in overnight repo market
+
+### Currencies
+
+AUD, CAD, CHF, EUR, GBP, JPY, NZD, SEK, USD
+
+### Data Source
+
+Bloomberg FX spot rates and OIS interest rates
+"""
