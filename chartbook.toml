@@ -24,7 +24,7 @@ README_file_path = "./README.md"
 [notebooks.summary_fx_returns]
 notebook_name = "summary_fx_returns"
 notebook_description = "Summary statistics and visualization of FX returns"
-notebook_path = "_output/_notebook_build/summary_fx_returns.ipynb"
+notebook_path = "_output/summary_fx_returns.ipynb"
 is_publishable = true
 
 [charts]

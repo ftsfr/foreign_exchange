@@ -49,3 +49,21 @@ Where:
 ## Credits
 
 Code adapted with permission from https://github.com/Kunj121/CIP
+
+## Academic References
+
+### Primary Papers
+
+- **Menkhoff, Sarno, Schmeling, and Schrimpf (2012)** - "Carry Trades and Global FX Volatility"
+  - Journal of Finance
+  - Documents volatility risk premium in carry trades
+
+- **Lettau, Maggiori, and Weber (2014)** - "Conditional Risk Premia in Currency Markets"
+  - Journal of Financial Economics
+  - Downside risk CAPM for currency returns
+
+### Key Findings
+
+- High interest rate currencies negatively relate to FX volatility innovations
+- Carry trade returns compensate for volatility risk
+- Global FX volatility is a pervasive pricing factor

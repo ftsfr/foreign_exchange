@@ -1,0 +1,35 @@
+# Paper References for Foreign Exchange Module
+
+[Menkhoff2012]
+title = "Carry Trades and Global Foreign Exchange Volatility"
+authors = "Lukas Menkhoff, Lucio Sarno, Maik Schmeling, and Andreas Schrimpf"
+year = 2012
+journal = "Journal of Finance"
+description = "The paper investigates the relationship between global foreign exchange (FX) volatility risk and the returns from carry trade strategies."
+empirical_facts = [
+    "High interest rate currencies are negatively related to innovations in global FX volatility.",
+    "Carry trades yield high returns, which are compensation for time-varying risk.",
+    "Global FX volatility is a pervasive risk factor in the cross section of FX excess returns.",
+    "Volatility risk dominates liquidity risk in explaining carry trade returns.",
+]
+lessons_learned = [
+    "Carry trade returns can be understood as compensation for volatility risk.",
+    "Global FX volatility is a significant factor in pricing risk premia across different asset classes.",
+    "Volatility risk is more critical than liquidity risk in the context of carry trades.",
+    "The forward premium puzzle can be partly explained by volatility risk factors.",
+]
+
+[Lettau2014]
+title = "Conditional Risk Premia in Currency Markets and Other Asset Classes"
+authors = "Martin Lettau, Matteo Maggiori, and Michael Weber"
+year = 2014
+journal = "Journal of Financial Economics"
+description = "The paper introduces the downside risk capital asset pricing model (DR-CAPM) to explain the cross section of currency returns."
+empirical_facts = [
+    "High-yield currencies exhibit stronger co-movement with market returns during downturns.",
+    "The DR-CAPM model explains the cross section of returns across various asset classes, not just currencies.",
+]
+lessons_learned = [
+    "Accounting for downside risk is crucial in understanding asset returns across different markets.",
+    "A unified risk model can provide better insights than asset-specific models.",
+]
