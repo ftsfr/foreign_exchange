@@ -29,6 +29,32 @@ is_publishable = true
 
 [charts]
 
+[charts.fx_cumulative_returns]
+chart_name = "Foreign Exchange Cumulative Returns"
+short_description_chart = "Cumulative returns showing growth of $1 invested in foreign currencies"
+dataframe_id = "ftsfr_fx_returns"
+path_to_html_chart = "./_output/fx_cumulative_returns.html"
+path_to_excel_chart = ""
+topic_tags = ["FX", "foreign exchange", "currency", "cumulative returns"]
+past_publications = []
+chart_docs_str = """
+## Foreign Exchange Cumulative Returns
+
+Cumulative returns showing growth of $1 invested in foreign currencies via overnight repo markets.
+
+### Currencies
+
+AUD, CAD, CHF, EUR, GBP, JPY, NZD, SEK, USD
+
+### Calculation
+
+Cumulative return = Product of (1 + daily return) over time
+
+### Data Source
+
+Bloomberg FX spot rates and OIS interest rates
+"""
+
 [dataframes]
 
 [dataframes.ftsfr_fx_returns]
