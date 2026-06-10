@@ -119,16 +119,23 @@ def implied_daily_fx_returns(fx_data, currency_list):
     for curr_name in currency_list:
         int_col = f"{curr_name}_ir"
 
+        # Convert annualised % interest (7.0 = 7%) to a per-day decimal return
+        # using the FX ACT/360 overnight convention.
+        daily_decimal = fx_df[int_col] / 100.0 / 360.0
+
         if curr_name == "USD":
-            fx_df["USD_return"] = fx_df[int_col]
+            # USD invested in USD overnight: return is just the daily USD rate.
+            fx_df["USD_return"] = daily_decimal
             continue
 
         spot_col = f"{curr_name}_spot"
+        # spot_{t-1} / spot_t, with spot quoted foreign-per-USD.
         fx_df[f"{spot_col}_ratio"] = fx_df[spot_col].shift(1) / fx_df[spot_col]
         curr_ret_col = f"{curr_name}_return"
 
-        # keep interest conversion consistent with US
-        fx_df[curr_ret_col] = fx_df[f"{spot_col}_ratio"] * fx_df[int_col]
+        # USD invested overnight in currency i:
+        #   ret_t = spot_{t-1}/spot_t * (1 + r_f,daily) - 1
+        fx_df[curr_ret_col] = fx_df[f"{spot_col}_ratio"] * (1.0 + daily_decimal) - 1.0
         ret_cols.append(curr_ret_col)
 
     # filter just for returns
