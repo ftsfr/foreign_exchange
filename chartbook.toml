@@ -1,81 +1,55 @@
-[config]
-type = "pipeline"
-chartbook_format_version = "0.0.2"
-
-[site]
-title = "Foreign Exchange Returns"
-author = "Jeremy Bejarano"
+[project]
+name = "Foreign Exchange Returns"
+description = "Daily FX returns for USD invested in foreign currencies via overnight repo markets"
+contributors = [
+    "Jeremy Bejarano",
+    "Kunj Mehta",
+]
+repo_url = "https://github.com/ftsfr/foreign_exchange"
 copyright = "2025"
-logo_path = ""
-favicon_path = ""
-
-[pipeline]
-id = "foreign_exchange"
-pipeline_name = "Foreign Exchange Returns"
-pipeline_description = "Daily FX returns for USD invested in foreign currencies via overnight repo markets"
-lead_pipeline_developer = "Jeremy Bejarano"
-contributors = ["Jeremy Bejarano", "Kunj Mehta"]
-runs_on = "Windows/Linux/MacOS (requires Bloomberg)"
-git_repo_URL = "https://github.com/ftsfr/foreign_exchange"
-README_file_path = "./README.md"
-
-[notebooks]
+os_compatibility = [
+    "Windows/Linux/MacOS (requires Bloomberg)",
+]
 
 [notebooks.summary_fx_returns]
-notebook_name = "summary_fx_returns"
-notebook_description = "Summary statistics and visualization of FX returns"
-notebook_path = "_output/summary_fx_returns.ipynb"
-is_publishable = true
-
-[charts]
-
-[charts.fx_cumulative_returns]
-chart_name = "Foreign Exchange Cumulative Returns"
-short_description_chart = "Cumulative returns showing growth of $1 invested in foreign currencies"
-dataframe_id = "ftsfr_fx_returns"
-path_to_html_chart = "./_output/fx_cumulative_returns.html"
-path_to_excel_chart = ""
-topic_tags = ["FX", "foreign exchange", "currency", "cumulative returns"]
-past_publications = []
-chart_docs_str = """
-## Foreign Exchange Cumulative Returns
-
-Cumulative returns showing growth of $1 invested in foreign currencies via overnight repo markets.
-
-### Currencies
-
-AUD, CAD, CHF, EUR, GBP, JPY, NZD, SEK, USD
-
-### Calculation
-
-Cumulative return = Product of (1 + daily return) over time
-
-### Data Source
-
-Bloomberg FX spot rates and OIS interest rates
-"""
-
-[dataframes]
+name = "summary_fx_returns"
+description = "Summary statistics and visualization of FX returns"
+path = "_output/summary_fx_returns.ipynb"
+publishable = true
 
 [dataframes.ftsfr_fx_returns]
-dataframe_name = "ftsfr_fx_returns"
-short_description_df = "Daily FX returns for USD invested in 9 foreign currencies"
-data_sources = ["Bloomberg FX"]
-data_providers = ["Bloomberg"]
-need_to_contact_provider = ["no"]
-data_on_pre_approved_list = ["No"]
-links_to_data_providers = ["https://bloomberg.com"]
-topic_tags = ["FX", "foreign exchange", "currency", "returns"]
-type_of_data_access = ["Bloomberg Terminal"]
-data_license = "Bloomberg"
-license_expiration_date = ""
-provider_contact_info = ""
-restriction_on_use = "No"
-how_is_pulled = "Pulled from Bloomberg via xbbg"
-path_to_parquet_data = "./_data/ftsfr_fx_returns.parquet"
-path_to_excel_data = ""
+name = "ftsfr_fx_returns"
+description = "Daily FX returns for USD invested in 9 foreign currencies"
+sources = [
+    "Bloomberg FX",
+]
+providers = [
+    "Bloomberg",
+]
+contact_required = [
+    "no",
+]
+pre_approved = [
+    "No",
+]
+provider_links = [
+    "https://bloomberg.com",
+]
+tags = [
+    "FX",
+    "foreign exchange",
+    "currency",
+    "returns",
+]
+access_types = [
+    "Bloomberg Terminal",
+]
+license = "Bloomberg"
+restrictions = "No"
+pull_method = "Pulled from Bloomberg via xbbg"
+path = "./_data/ftsfr_fx_returns.parquet"
 date_col = "ds"
-dataframe_docs_str = """
+docs = """
 ## Foreign Exchange Returns
 
 Daily returns for USD invested in foreign currencies via overnight repo markets.
@@ -101,6 +75,35 @@ Where:
 ### Currencies
 
 AUD, CAD, CHF, EUR, GBP, JPY, NZD, SEK, USD
+
+### Data Source
+
+Bloomberg FX spot rates and OIS interest rates
+"""
+
+[charts.fx_cumulative_returns]
+name = "Foreign Exchange Cumulative Returns"
+description = "Cumulative returns showing growth of $1 invested in foreign currencies"
+dataframe = "ftsfr_fx_returns"
+path = "./_output/fx_cumulative_returns.html"
+tags = [
+    "FX",
+    "foreign exchange",
+    "currency",
+    "cumulative returns",
+]
+docs = """
+## Foreign Exchange Cumulative Returns
+
+Cumulative returns showing growth of $1 invested in foreign currencies via overnight repo markets.
+
+### Currencies
+
+AUD, CAD, CHF, EUR, GBP, JPY, NZD, SEK, USD
+
+### Calculation
+
+Cumulative return = Product of (1 + daily return) over time
 
 ### Data Source
 
